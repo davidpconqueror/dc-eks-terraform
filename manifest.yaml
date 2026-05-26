@@ -26,7 +26,7 @@ metadata:
   namespace: webapps
 spec:
   type: ExternalName
-  externalName: techpilotz-mysql-db.cvsy8coe8pbb.ap-south-1.rds.amazonaws.com
+  externalName: dc-eks-mysql-db.c78sgmi626ps.ap-south-1.rds.amazonaws.com
   ports:
     - port: 3306
 
@@ -65,14 +65,14 @@ spec:
                   key: SPRING_DATASOURCE_PASSWORD
       containers:
         - name: bankapp
-          image: techpilotz/bankapp:latest
+          image: techpilotz/bankapp:v3
           resources:
             requests:
-              memory: 180Mi
-              cpu: 150m
+              memory: 256Mi
+              cpu: 250m
             limits:
-              memory: 320Mi
-              cpu: 300m
+              memory: 512Mi
+              cpu: 500m
           ports:
             - containerPort: 8080
           env:
